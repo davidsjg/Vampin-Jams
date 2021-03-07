@@ -1,5 +1,5 @@
 {
-  "name": "Vampin-Jams",
+  "name": "dbConnect2",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -7,20 +7,11 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/davidsjg/Vampin-Jams.git"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/davidsjg/Vampin-Jams/issues"
-  },
-  "homepage": "https://github.com/davidsjg/Vampin-Jams#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "materialize-css": "^1.0.0-rc.2",
     "mysql2": "^2.2.5",
     "sequelize": "^6.5.0"
   }

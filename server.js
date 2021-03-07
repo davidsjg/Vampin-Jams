@@ -1,30 +1,32 @@
-const express = require('express');
-const app = express();
-const expbs = require('express-handlebars');
-const PORT = process.env.PORT || 9696;
-const db =require("./models")
+// Server.js - This file is the initial starting point for the Node/Express server.
 
-app.use(express.static("public"));
+// Dependencies
+// =============================================================
+const express = require('express');
+const db = require('./models')
+
+// Sets up the Express App
+// =============================================================
+const app = express();
+const PORT = process.env.PORT || 8080;
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-// app.use(express.static(path.join(__dirname, '/public')));
 
-const path = require('path');
+// Static directory to be served
+app.use(express.static('app/public'));
 
-app.engine('handlebars', expbs ({ defaultLayout: "main", partialsDir: __dirname + './public/views'}));
-app.set('view engine', 'handlebars');
+// // Routes
+// // =============================================================
+// require('./app/routes/api-routes.js')(app);
 
-// add the filepath to our controller where the / is
-const HTMLrouter = require("./routes/html-routes");
-// app.use(router);
-HTMLrouter(app);
+// // Here we introduce HTML routing to serve different HTML files
+// require('./app/routes/html-routes.js')(app);
 
-const APIrouter = require("./routes/api-routes");
-APIrouter(app);
+// Starts the server to begin listening
+// =============================================================
 
-db.sequelize.sync()
-.then(function () {
-  app.listen(PORT, function () {
-    console.log("App now listening on port:", PORT);
-  });
-});
+db.sequelize
+    .sync()
+    .then(() =>  app.listen(PORT, () => console.log(`Listening on PORT ${PORT}`)))
+

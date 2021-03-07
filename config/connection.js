@@ -1,14 +1,19 @@
-const Sequelize = require("sequelize")
+// CONNECTION.JS - THIS FILE INITIATES THE CONNECTION TO MYSQL
 
-const sequelize = new Sequelize("thread", "root", "Colorado23", {
-    host: "localhost",
-    port: 9696,
-    dialect: "mysql",
-    pool: { 
-        max: 5,
-        min: 0,
-        idle: 10000,
-    },
-})
+// Dependencies
+const Sequelize = require('sequelize');
 
-module.exports = sequelize
+// Creates mySQL connection using Sequelize, the empty string in the third argument spot is our password.
+const sequelize = new Sequelize('threads_db', 'root', 'Colorado23', {
+  host: 'localhost',
+  port: 3306,
+  dialect: 'mysql',
+  pool: {
+    max: 5,
+    min: 0,
+    idle: 10000,
+  },
+});
+
+// Exports the connection for other files to use
+module.exports = sequelize;
