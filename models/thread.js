@@ -13,6 +13,7 @@ var thread = seq.define('thread', {
 
 thread.sync({force: true}).then(function() {
 
+    
     return thread.create({
         Subject: "Crazy Neighbor 2",
         Author: "cactus_guise"
