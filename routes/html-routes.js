@@ -1,14 +1,21 @@
 const path = require('path')
 var exphbs = require('express-handlebars')
 
-module.exports {
+module.exports = (app) => {
 
-    app.get('/threads', (req, res) =>
+    app.get('/', (req, res) =>
         res.render("index"))
     ;
     app.get('/post', (req, res) => 
-        res.resnder("post")
+        res.render("post")
     )
     app.get('/search', (req, res) => 
         res.render("search"))
 }
+
+
+
+
+
+
+
